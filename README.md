@@ -1,16 +1,24 @@
-## Hi there 👋
+# Hi, I'm Alaamo7 👋
 
-<!--
-**Alaamo7/Alaamo7** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I build practical TradingView tools and educational projects with Pine Script.
 
-Here are some ideas to get you started:
+## What I work on
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- TradingView indicators and strategies
+- Pine Script v6
+- Technical-analysis tooling
+- Backtesting, documentation, and reusable learning resources
+
+## Featured project
+
+### [Pine Script v6 Course](https://github.com/Alaamo7/pine-script-v6-course)
+
+An Arabic-friendly project for learning and building TradingView indicators and strategies with Pine Script v6, including liquidity analysis and scalping examples.
+
+## Current focus
+
+Improving structured, well-documented Pine Script projects that are easier to learn from, test, and extend.
+
+---
+
+Feel free to explore my repositories and follow my progress.
