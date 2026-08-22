@@ -28,11 +28,25 @@ In [`pine-script-indicators`](https://github.com/Alaamo7/pine-script-indicators)
 
 [Open the toolkit →](https://github.com/Alaamo7/pine-script-indicators)
 
+[Read the engineering validation case study →](https://github.com/Alaamo7/pine-script-indicators/blob/main/docs/case-studies/2026-08-22-tradingview-validation.md)
+
 ### 📈 Curated Pine Script v6 portfolio
 
 [`pine-script-portfolio`](https://github.com/Alaamo7/pine-script-portfolio) contains a smaller curated set of Pine Script v6 indicators selected for portfolio presentation, with compile checks, screenshots, verification notes, and repainting caveats.
 
 [Open the curated portfolio →](https://github.com/Alaamo7/pine-script-portfolio)
+
+## Engineering approach
+
+I prefer evidence-backed technical work over unsupported claims. My current repository workflow separates:
+
+- source-preserving archives,
+- curated portfolio candidates,
+- validation evidence,
+- known failures and limitations,
+- and future development roadmaps.
+
+A successful compile or backtest is treated as technical evidence for the tested setup, not as proof of future trading performance.
 
 ## Current focus
 
