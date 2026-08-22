@@ -1,24 +1,49 @@
-# Hi, I'm Alaamo7 👋
+# Hi, I'm Alaa Hamza 👋
 
-I build practical TradingView tools and educational projects with Pine Script.
+**IT Technical Support professional · Pine Script developer · EGX technical-analysis tooling**
+
+I build practical TradingView tools, structured Pine Script projects, and technical learning resources with a strong focus on the Egyptian Exchange (EGX).
 
 ## What I work on
 
-- TradingView indicators and strategies
-- Pine Script v6
-- Technical-analysis tooling
-- Backtesting, documentation, and reusable learning resources
+- TradingView indicators and strategy prototypes
+- Pine Script v6 development and debugging
+- EGX-focused technical-analysis dashboards
+- Backtesting and TradingView validation workflows
+- Technical documentation and reusable learning resources
 
-## Featured project
+## Portfolio highlights
 
-### [Pine Script v6 Course](https://github.com/Alaamo7/pine-script-v6-course)
+### 🧪 120-script TradingView validation project
 
-An Arabic-friendly project for learning and building TradingView indicators and strategies with Pine Script v6, including liquidity analysis and scalping examples.
+In [`pine-script-indicators`](https://github.com/Alaamo7/pine-script-indicators), I maintain a structured collection of TradingView/Pine Script assets and validation evidence.
+
+**Latest validation snapshot — 2026-08-22:**
+
+- **120** Pine scripts tested individually on TradingView
+- **115** scripts loaded and rendered successfully
+- **5** scripts produced documented Pine compilation errors
+- **7** strategies have Strategy Tester evidence and screenshots
+- Each tested script has an adjacent test report and TradingView screenshot evidence
+
+[Open the toolkit →](https://github.com/Alaamo7/pine-script-indicators)
+
+### 📈 Curated Pine Script v6 portfolio
+
+[`pine-script-portfolio`](https://github.com/Alaamo7/pine-script-portfolio) contains a smaller curated set of Pine Script v6 indicators selected for portfolio presentation, with compile checks, screenshots, verification notes, and repainting caveats.
+
+[Open the curated portfolio →](https://github.com/Alaamo7/pine-script-portfolio)
 
 ## Current focus
 
-Improving structured, well-documented Pine Script projects that are easier to learn from, test, and extend.
+Improving the engineering quality, testing evidence, documentation, and maintainability of my Pine Script projects while keeping EGX workflows practical and transparent.
+
+## Repository guide
+
+- [`pine-script-indicators`](https://github.com/Alaamo7/pine-script-indicators) — main technical-analysis toolkit, archive, documentation, and TradingView validation evidence
+- [`pine-script-portfolio`](https://github.com/Alaamo7/pine-script-portfolio) — curated public portfolio of verified Pine Script v6 indicators
+- [`pine-script-v6-course`](https://github.com/Alaamo7/pine-script-v6-course) — educational Pine Script project currently being validated and developed
 
 ---
 
-Feel free to explore my repositories and follow my progress.
+> Trading and technical-analysis projects shown here are for education, research, and software demonstration. They are not financial advice or guarantees of future performance.
