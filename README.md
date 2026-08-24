@@ -1,5 +1,7 @@
 # Hi, I'm Alaa Hamza 👋
 
+[![Profile quality](https://github.com/Alaamo7/Alaamo7/actions/workflows/profile-quality.yml/badge.svg)](https://github.com/Alaamo7/Alaamo7/actions/workflows/profile-quality.yml)
+
 **IT Technical Support professional · Pine Script developer · EGX technical-analysis tooling**
 
 I build practical TradingView tools, structured Pine Script projects, and technical learning resources with a strong focus on the Egyptian Exchange (EGX).
@@ -21,8 +23,8 @@ In [`pine-script-indicators`](https://github.com/Alaamo7/pine-script-indicators)
 **Latest validation snapshot — 2026-08-22:**
 
 - **120** Pine scripts tested individually on TradingView
-- **115** scripts loaded and rendered successfully
-- **5** scripts produced documented Pine compilation errors
+- **120** scripts loaded and rendered successfully after repairing and re-testing five original compilation failures
+- **5 / 5** originally failing scripts were repaired and re-tested successfully
 - **7** strategies have Strategy Tester evidence and screenshots
 - Each tested script has an adjacent test report and TradingView screenshot evidence
 
