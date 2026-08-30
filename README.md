@@ -19,22 +19,27 @@ I work on practical IT support, structured troubleshooting, AI-assisted technica
 
 ## Portfolio highlights
 
-### 🤖 PromptBench AI — Hugging Face Space
+### 🤖 PromptBench AI — LLM Evaluation Platform
 
-**PromptBench AI** is a live Hugging Face Space used as a practical environment for LLM/prompt experimentation, evaluation workflows, AI-agent-oriented prototyping, and hosted AI deployment.
+**PromptBench AI** is a Gradio application for testing whether language models follow user instructions. It combines deterministic constraint checks with an LLM judge and supports single tests, batch benchmarking, analytics, local run history, exports, and same-case model comparison.
 
-**Verified public status — 2026-08-30:**
+**Verified public evidence — 2026-08-30:**
 
-- Hugging Face Space: **Running**
-- Category: **Agents**
-- Deployment platform: **Hugging Face Spaces**
-- Portfolio focus: prompt workflows, evaluation, deployment, testing, iteration, and secure credential handling
+- Dedicated public source repository with inspected application code, tests, documentation, CI, and genuine interface screenshots
+- Hugging Face Spaces deployment linked; the Space was observed in `Sleeping` state during the audit
+- Gradio 6.25.0 Space metadata and `app.py` entry point
+- 50-case Arabic/English evaluation dataset
+- 35 offline tests passed locally
+- GitHub CI run #1 passed dependency validation, syntax validation, offline pytest, and Gitleaks
+- No autonomous agent loop is claimed or present in the runtime code
 
-The project demonstrates moving AI work beyond local experiments into a hosted, testable application lifecycle with explicit attention to documentation, reproducibility, and secrets management.
+The repository documents verified architecture, provider integrations, evaluation logic, environment configuration, secret handling, deployment, validation evidence, limitations, and open technical work.
+
+[Open the GitHub repository →](https://github.com/Alaamo7/promptbench-ai)
 
 [Open the live Hugging Face Space →](https://huggingface.co/spaces/3la2mo7/promptbench-ai)
 
-[Read the PromptBench AI case study →](https://github.com/Alaamo7/Alaamo7/blob/main/docs/ai-projects/promptbench-ai.md)
+[Review validation evidence →](https://github.com/Alaamo7/promptbench-ai/blob/main/docs/validation.md)
 
 ### 🛠️ IT Support + AI-Assisted Troubleshooting Case Studies
 
@@ -101,7 +106,7 @@ Building a stronger combined portfolio around **IT Technical Support + AI-assist
 
 ## Repository guide
 
-- [`PromptBench AI case study`](https://github.com/Alaamo7/Alaamo7/blob/main/docs/ai-projects/promptbench-ai.md) — live Hugging Face Space, hosted AI application workflow, prompt/LLM experimentation, deployment, testing, and security notes
+- [`promptbench-ai`](https://github.com/Alaamo7/promptbench-ai) — Gradio LLM-evaluation application with verified source, 50-case dataset, offline tests, security controls, CI, deployment documentation, and Hugging Face live demo
 - [`Alaamo7/Alaamo7 — IT + AI case studies`](https://github.com/Alaamo7/Alaamo7/blob/main/docs/it-ai-case-studies.md) — real troubleshooting cases covering Windows applications, USB storage recovery, firmware/UEFI, drivers, and verification
 - [`IT case-study template`](https://github.com/Alaamo7/Alaamo7/blob/main/docs/it-case-study-template.md) — reusable structure for future evidence-backed troubleshooting cases
 - [`pine-script-indicators`](https://github.com/Alaamo7/pine-script-indicators) — main technical-analysis toolkit, archive, documentation, and TradingView validation evidence
