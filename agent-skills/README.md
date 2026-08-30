@@ -21,6 +21,16 @@ Reusable agent skills and workflow instructions designed for AI agents, agent ha
 - [`cost-control`](./cost-control/SKILL.md)
 - [`harness-engineering`](./harness-engineering/SKILL.md)
 
+### Multi-agent coordination
+- [`agent-role-design`](./agent-role-design/SKILL.md) — bounded responsibilities, capabilities, tools, authority, and escalation paths.
+- [`agent-delegation`](./agent-delegation/SKILL.md) — structured subtask assignment with scoped context, permissions, and acceptance criteria.
+- [`agent-handoff`](./agent-handoff/SKILL.md) — transfer verified progress, state, artifacts, side effects, blockers, and next actions.
+- [`shared-state-coordination`](./shared-state-coordination/SKILL.md) — coordinate agents using ownership, revisions, conflict checks, and verified shared state.
+- [`multi-agent-conflict-resolution`](./multi-agent-conflict-resolution/SKILL.md) — resolve disagreements by evidence, authority, freshness, ownership, and policy.
+- [`supervisor-agent`](./supervisor-agent/SKILL.md) — decompose, delegate, supervise, verify, reconcile, and accept completion.
+- [`worker-agent`](./worker-agent/SKILL.md) — execute bounded delegated work and return evidence-backed structured results.
+- [`consensus-evaluation`](./consensus-evaluation/SKILL.md) — evidence-weighted review of multiple agent outputs without naive majority voting.
+
 ### Knowledge & retrieval
 - [`rag-pipeline`](./rag-pipeline/SKILL.md) — end-to-end retrieval-augmented generation architecture.
 - [`document-ingestion`](./document-ingestion/SKILL.md) — extraction, metadata, provenance, permissions, duplicate/version handling.
@@ -88,6 +98,43 @@ Reusable agent skills and workflow instructions designed for AI agents, agent ha
 - [`job-agent`](./job-agent/SKILL.md)
 - [`spark-image-first-presentation-pack`](./spark-image-first-presentation-pack/README.md) — Manifest
 
+## Multi-agent coordination pattern
+
+```text
+Parent Objective
+      ↓
+Supervisor Agent
+      ↓
+Role Design + Delegation
+      ↓
+┌───────────────┬───────────────┬───────────────┐
+│ Research      │ Execution     │ Specialist    │
+│ Worker        │ Worker        │ Worker        │
+└───────┬───────┴───────┬───────┴───────┬───────┘
+        │               │               │
+        └─────── Shared State ───────────┘
+                        ↓
+                    Handoffs
+                        ↓
+              Conflict Resolution
+                        ↓
+             Consensus / Verification
+                        ↓
+         PASS / REPAIR / REASSIGN / ESCALATE
+```
+
+## Multi-agent principles
+
+1. **Roles are contracts** — responsibilities, tools, authority, inputs, outputs, and escalation paths are explicit.
+2. **Delegate bounded work** — subtasks should be independently testable and have clear acceptance criteria.
+3. **Structured handoffs** — transfer verified progress, side effects, IDs, artifacts, blockers, and next actions rather than entire transcripts.
+4. **Shared state is versioned** — mutable coordination state uses ownership and revision checks to prevent stale writes.
+5. **Resolve conflicts by evidence** — authoritative external state, direct tool results, freshness, and policy outweigh majority opinion.
+6. **Supervisor owns integration** — workers own subtasks; the supervisor owns task-level reconciliation and acceptance.
+7. **Workers stay in scope** — a worker does not silently broaden permissions or claim overall completion.
+8. **Consensus is evidence-weighted** — agreement can improve confidence but does not replace verification.
+9. **Multi-agent only when useful** — do not add agents when one agent with good skills/tools can complete the task reliably.
+
 ## Knowledge path
 
 ```text
@@ -124,26 +171,23 @@ Knowledge Quality Control ───────┴──→ continuously validat
 ```text
 Event / User Objective
         ↓
-Orchestrator + Workflow Engine
+Supervisor / Orchestrator
         ↓
-Dependency / Skill / Model Routing
+Workflow + Dependency Resolution
         ↓
-Task State + Checkpoints
+Single-Agent or Multi-Agent Route?
+        ├── Single agent → skill/model routing
+        └── Multi-agent → role design → delegation → workers → handoffs
+        ↓
+Task State + Shared State + Checkpoints
         ↓
 Knowledge Retrieval (when needed)
-        ├── Ingest / Chunk / Index
-        ├── Retrieve / Rank
-        └── Ground / Cite
         ↓
 Context + Memory
         ↓
 Security + Cost + Human Gates
         ↓
-Data Validation
-        ↓
-Tool / Connector Selection
-        ↓
-Tool Contract Enforcement
+Data Validation + Tool/Connector Selection
         ↓
 Idempotency + Concurrency Controls
         ↓
@@ -151,9 +195,11 @@ Execution
         ↓
 Logging + Persist State
         ↓
+Conflict Resolution / Consensus (when multi-agent)
+        ↓
 Verification
         ↓
-PASS / RETRY / RECOVER / RESUME / ESCALATE
+PASS / RETRY / RECOVER / REASSIGN / RESUME / ESCALATE
         ↓
 Evaluation + Agent Testing
         ↓
@@ -162,47 +208,42 @@ Deployment Readiness
 Production / Event Loop
 ```
 
-## Knowledge & retrieval principles
-
-1. **Provenance survives ingestion** — source identity, version, location, and access metadata remain attached to retrieved content.
-2. **Structure-aware chunking** — retrieval units should preserve semantic and document boundaries rather than rely only on fixed character counts.
-3. **Ranking is multi-factor** — semantic relevance, exact match, authority, freshness, metadata, duplication, and permissions all matter.
-4. **Minimum sufficient evidence** — do not overload the context with weak or duplicate chunks.
-5. **Ground claims, not just answers** — material claims should map to supporting evidence.
-6. **Citation integrity** — verify citations after edits to prevent citation drift.
-7. **Freshness is explicit** — changed or stale sources should trigger refresh or qualification.
-8. **Quality is measurable** — test retrieval with representative questions and audit unsupported-answer risk.
-
 ## Core design principles
 
 - Evidence before claims.
 - Verification after consequential actions.
 - Least-privilege tools and connectors.
 - Minimum sufficient context.
-- Explicit workflow and task state.
+- Explicit workflow, task state, and shared state.
+- Structured delegation and handoff.
 - Idempotent and concurrency-safe side effects.
 - Observability without secret leakage.
 - Retry only after failure classification.
 - Human review proportional to risk.
 - Evaluation before production.
+- Multi-agent complexity only when it creates measurable value.
 
 ## Suggested harness layout
 
 ```text
 agent-harness/
 ├── orchestration/
+│   ├── agent-orchestrator/
+│   ├── supervisor-agent/
+│   ├── skill-router/
+│   └── model-router/
+├── multi-agent/
+│   ├── agent-role-design/
+│   ├── agent-delegation/
+│   ├── agent-handoff/
+│   ├── shared-state-coordination/
+│   ├── multi-agent-conflict-resolution/
+│   ├── worker-agent/
+│   └── consensus-evaluation/
 ├── workflow/
 ├── state/
 ├── context/
 ├── knowledge/
-│   ├── rag-pipeline/
-│   ├── document-ingestion/
-│   ├── chunking-strategy/
-│   ├── retrieval-ranking/
-│   ├── source-grounding/
-│   ├── citation-management/
-│   ├── knowledge-refresh/
-│   └── knowledge-quality-control/
 ├── governance/
 ├── tool-engineering/
 ├── operations/
@@ -214,12 +255,12 @@ agent-harness/
 
 ## Compatibility
 
-The files use Markdown-based `SKILL.md` instructions and can be adapted to agent runtimes that support reusable skills or system/task instruction modules. Tool names, schemas, permission models, retrieval/index technology, model routing, memory persistence, state handling, workflow engines, observability, approval gates, and connector behavior should be mapped to the target runtime before execution.
+The files use Markdown-based `SKILL.md` instructions and can be adapted to agent runtimes that support reusable skills or system/task instruction modules. Tool names, schemas, permission models, retrieval/index technology, model routing, memory persistence, shared-state storage, workflow engines, agent messaging, observability, approval gates, and connector behavior should be mapped to the target runtime before execution.
 
 ## Security note
 
-No API keys, tokens, passwords, private candidate data, customer data, or other secrets should be committed here. Use runtime secret injection or a secret manager. Retrieval permissions must respect source-system access boundaries; indexing content does not make it public.
+No API keys, tokens, passwords, private candidate data, customer data, or other secrets should be committed here. Use runtime secret injection or a secret manager. Multi-agent systems should not copy secrets into shared state or handoff packets unless the storage and recipient permissions explicitly allow it.
 
 ## Portfolio intent
 
-This directory demonstrates reusable AI agent and harness-engineering patterns rather than isolated prompts. The target is an auditable system covering architecture, routing, knowledge retrieval, context, state/workflows, tool engineering, permissions, execution, observability, recovery, evaluation, human review, and production readiness.
+This directory demonstrates reusable AI agent and harness-engineering patterns rather than isolated prompts. The target is an auditable system covering architecture, routing, multi-agent coordination, knowledge retrieval, context, state/workflows, tool engineering, permissions, execution, observability, recovery, evaluation, human review, and production readiness.
