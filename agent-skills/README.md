@@ -21,33 +21,46 @@ Reusable agent skills and workflow instructions designed for AI agents, agent ha
 | [`it-support`](./it-support/SKILL.md) | Restored | Diagnose Windows endpoints, users, software, peripherals, connectivity, and common infrastructure incidents. |
 | [`usb-repair`](./usb-repair/SKILL.md) | Restored from documented workflow | Diagnose USB flash-drive failures and safely perform controller-level recovery when justified. |
 | [`network-diagnostics`](./network-diagnostics/SKILL.md) | Restored | Layered TCP/IP, DHCP, DNS, Wi-Fi, routing, firewall, and application-connectivity troubleshooting. |
+| [`windows-deployment`](./windows-deployment/SKILL.md) | Restored | Standardize Windows installation, drivers, updates, software, validation, and endpoint handoff. |
+| [`powershell-automation`](./powershell-automation/SKILL.md) | Restored | Build safer repeatable Windows automation with validation, logging, idempotency, and rollback awareness. |
 | [`pine-script-testing`](./pine-script-testing/SKILL.md) | Restored from documented workflow | Validate Pine Script v6 compilation, logic, inputs, state, repainting risk, visuals, and repository readiness. |
+| [`github-agent`](./github-agent/SKILL.md) | Restored | Maintain repositories, files, issues, PRs, documentation, validation, and secret-aware GitHub workflows. |
+| [`knowledge-capture`](./knowledge-capture/SKILL.md) | Restored | Turn incidents, troubleshooting, decisions, and research into reusable KB/SOP documentation. |
+| [`ai-research`](./ai-research/SKILL.md) | Restored | Perform source-aware technical research, contradiction handling, evidence synthesis, and practical recommendations. |
 | [`harness-engineering`](./harness-engineering/SKILL.md) | Restored from documented architecture | Design agent harnesses with tools, skills, context, memory, state, orchestration, verification, and security controls. |
+| [`agent-security-permissions`](./agent-security-permissions/SKILL.md) | Restored from documented principles | Design least-privilege agent permissions, secret handling, tool boundaries, action gates, and audit controls. |
 | [`spark-image-first-presentation-pack`](./spark-image-first-presentation-pack/README.md) | Manifest | 12-skill presentation pipeline derived from reference-deck reverse engineering. |
 
 ## Skill groups
 
-### Agent engineering
+### Agent engineering & governance
 
 - `harness-engineering`
-- `job-agent`
-- `youtube-to-course`
-- `ai-video-creator`
+- `agent-security-permissions`
+- `github-agent`
+- `ai-research`
 
-### IT operations
+### IT operations & automation
 
 - `it-support`
 - `network-diagnostics`
 - `usb-repair`
+- `windows-deployment`
+- `powershell-automation`
+- `knowledge-capture`
 
 ### Development & QA
 
 - `pine-script-testing`
+- `github-agent`
 
-### Content & career systems
+### Content, learning & career systems
 
 - `presentation-design`
 - `build-ats-resume`
+- `youtube-to-course`
+- `ai-video-creator`
+- `job-agent`
 - `spark-image-first-presentation-pack`
 
 ## Design principles
@@ -61,6 +74,7 @@ These skills are built around several common rules:
 5. **Reusable context** — keep stable domain instructions in skills while keeping task-specific data outside the skill file.
 6. **Clear status reporting** — separate verified facts, hypotheses, missing data, and unresolved failures.
 7. **Controlled destructive actions** — disk repair, profile replacement, permission changes, firmware operations, deletions, and external sends require stronger evidence and authorization.
+8. **Operational documentation** — reusable workflows should record environment, evidence, action, verification, and unresolved risk.
 
 ## Suggested harness layout
 
@@ -68,9 +82,15 @@ These skills are built around several common rules:
 agent-harness/
 ├── skills/
 │   ├── harness-engineering/
+│   ├── agent-security-permissions/
+│   ├── github-agent/
+│   ├── ai-research/
 │   ├── it-support/
 │   ├── network-diagnostics/
 │   ├── usb-repair/
+│   ├── windows-deployment/
+│   ├── powershell-automation/
+│   ├── knowledge-capture/
 │   ├── pine-script-testing/
 │   ├── build-ats-resume/
 │   ├── presentation-design/
@@ -95,4 +115,4 @@ No API keys, tokens, passwords, private candidate data, customer data, or other 
 
 ## Portfolio intent
 
-This directory documents reusable workflows and agent-engineering patterns rather than isolated prompts. A skill should demonstrate a repeatable process, explicit boundaries, verification, and failure handling—not just a long instruction block.
+This directory documents reusable workflows and agent-engineering patterns rather than isolated prompts. A skill should demonstrate a repeatable process, explicit boundaries, verification, failure handling, and operational value—not just a long instruction block.
