@@ -2,19 +2,35 @@
 
 [![Profile quality](https://github.com/Alaamo7/Alaamo7/actions/workflows/profile-quality.yml/badge.svg)](https://github.com/Alaamo7/Alaamo7/actions/workflows/profile-quality.yml)
 
-**IT Technical Support professional · Pine Script developer · EGX technical-analysis tooling**
+**IT Technical Support professional · AI-assisted troubleshooting · Pine Script developer · EGX technical-analysis tooling**
 
-I build practical TradingView tools, structured Pine Script projects, and technical learning resources with a strong focus on the Egyptian Exchange (EGX).
+I work on practical IT support, structured troubleshooting, AI-assisted technical workflows, TradingView/Pine Script development, and technical documentation.
 
 ## What I work on
 
-- TradingView indicators and strategy prototypes
-- Pine Script v6 development and debugging
+- Windows troubleshooting, deployment, drivers, storage, firmware, and endpoint support
+- AI-assisted troubleshooting, technical research, documentation, and verification workflows
+- TradingView indicators and Pine Script v6 development/debugging
 - EGX-focused technical-analysis dashboards
 - Backtesting and TradingView validation workflows
-- Technical documentation and reusable learning resources
+- Reusable technical documentation and learning resources
 
 ## Portfolio highlights
+
+### 🛠️ IT Support + AI-Assisted Troubleshooting Case Studies
+
+I document real troubleshooting cases using an evidence-based workflow: capture symptoms and Hardware IDs, build hypotheses, choose the lowest-risk repair path, perform the hands-on technical work, verify the result, and record both successes and unresolved limitations.
+
+Selected cases include:
+
+- Autodesk 3ds Max startup failure resolved by isolating and resetting a corrupted user profile
+- Redragon USB flash recovery at the FirstChip controller/NAND-mapping level, verified with a full H2testw write/read test
+- Kingston DataTraveler Read Only / Write Protection recovery using Phison controller analysis and controlled stop conditions
+- HP Chromebook 14 G6 conversion to Windows through MrChromebox Full ROM UEFI, USB-PD troubleshooting, and Hardware-ID-based driver analysis
+
+AI is used as a **technical copilot** for research, hypothesis structuring, evidence organization, and documentation; repair execution and final validation are performed on the actual devices and systems.
+
+[Read the IT + AI troubleshooting case studies →](https://github.com/Alaamo7/Alaamo7/blob/main/docs/it-ai-case-studies.md)
 
 ### 🧪 120-script TradingView validation project
 
@@ -40,22 +56,28 @@ In [`pine-script-indicators`](https://github.com/Alaamo7/pine-script-indicators)
 
 ## Engineering approach
 
-I prefer evidence-backed technical work over unsupported claims. My current repository workflow separates:
+I prefer evidence-backed technical work over unsupported claims. My workflow emphasizes:
 
+- reproducible troubleshooting records,
+- Hardware-ID/log/error-based diagnosis,
+- risk-aware repair sequencing,
+- explicit verification after remediation,
 - source-preserving archives,
-- curated portfolio candidates,
 - validation evidence,
 - known failures and limitations,
-- and future development roadmaps.
+- and maintainable technical documentation.
 
-A successful compile or backtest is treated as technical evidence for the tested setup, not as proof of future trading performance.
+AI is used to improve research speed, organize evidence, compare hypotheses, and turn successful fixes into reusable knowledge. It does not replace hands-on verification.
+
+A successful compile, backtest, repair, or device recovery is treated as evidence for the tested setup—not as a reason to overstate what was proven.
 
 ## Current focus
 
-Improving the engineering quality, testing evidence, documentation, and maintainability of my Pine Script projects while keeping EGX workflows practical and transparent.
+Building a stronger combined portfolio around **IT Technical Support + AI-assisted operations**, while continuing to improve the engineering quality, validation evidence, documentation, and maintainability of my Pine Script projects.
 
 ## Repository guide
 
+- [`Alaamo7/Alaamo7 — IT + AI case studies`](https://github.com/Alaamo7/Alaamo7/blob/main/docs/it-ai-case-studies.md) — real troubleshooting cases covering Windows applications, USB storage recovery, firmware/UEFI, drivers, and verification
 - [`pine-script-indicators`](https://github.com/Alaamo7/pine-script-indicators) — main technical-analysis toolkit, archive, documentation, and TradingView validation evidence
 - [`pine-script-portfolio`](https://github.com/Alaamo7/pine-script-portfolio) — curated public portfolio of verified Pine Script v6 indicators
 - [`pine-script-v6-course`](https://github.com/Alaamo7/pine-script-v6-course) — educational Pine Script project currently being validated and developed
