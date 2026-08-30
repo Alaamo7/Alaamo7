@@ -8,15 +8,16 @@ This lab is designed to demonstrate troubleshooting discipline rather than a lis
 
 ### Current verified evidence
 
-The current documented portfolio contains five real-world troubleshooting cases:
+The current documented portfolio contains six real-world troubleshooting cases:
 
 1. **Autodesk 3ds Max startup failure** — isolated and resolved by resetting a corrupted Windows user profile instead of reinstalling the application or operating system.
 2. **Redragon USB flash recovery** — controller/NAND-level recovery using FirstChip tooling, followed by a full H2testw write/read verification.
 3. **Kingston DataTraveler read-only recovery** — Phison controller analysis with a controlled recovery path and explicit stop conditions.
 4. **HP Chromebook 14 G6 Windows conversion** — MrChromebox Full ROM UEFI, USB-PD troubleshooting, and Hardware-ID-based driver analysis.
 5. **The Sims 4 startup failure** — isolated to a user-data/version mismatch and corrected without an unnecessary full reinstall.
+6. **Windows 10 Cairo time-zone + NTP + permission recovery** — restored `w32time` synchronization, validated NTP/UDP 123, and recovered a greyed-out time-zone selector by correcting the effective `SeTimeZonePrivilege` user right. [Read the evidence-backed case](windows-10-timezone-ntp-permission-case.md).
 
-Read the detailed cases: [IT + AI-Assisted Troubleshooting Case Studies](../it-ai-case-studies.md).
+Read the consolidated cases: [IT + AI-Assisted Troubleshooting Case Studies](../it-ai-case-studies.md).
 
 Use the reusable format: [IT Case Study Template](../it-case-study-template.md).
 
@@ -50,12 +51,12 @@ Validate the result
 
 | Area | Current evidence | Next portfolio evidence |
 | --- | --- | --- |
-| Windows support | Real application/profile/startup cases | Repeatable OS health and deployment runbooks |
+| Windows support | Real application/profile/startup cases plus Windows Time/time-zone/service-policy recovery | Repeatable OS health and deployment runbooks |
 | Hardware & storage | USB controller/NAND recovery cases | SMART/storage triage runbook and safe stop conditions |
 | Firmware / UEFI | Chromebook conversion case | Firmware recovery checklist and rollback notes |
 | Drivers | Hardware-ID-based analysis | Driver triage decision tree |
-| Networking | Troubleshooting experience to be documented | DNS/DHCP/Wi-Fi/LAN diagnostic runbooks |
-| Identity & access | Portfolio evidence still to be added | AD/GPO/M365 lab scenarios |
+| Networking | NTP source isolation, DNS reachability check, and UDP 123 protocol validation | DNS/DHCP/Wi-Fi/LAN diagnostic runbooks |
+| Identity & access | Local User Rights Assignment / `SeTimeZonePrivilege` troubleshooting | AD/GPO/M365 lab scenarios |
 | Automation | Portfolio evidence still to be added | PowerShell diagnostics and evidence collection |
 | Monitoring / backup | Portfolio evidence still to be added | Health-check, backup verification, and recovery scenarios |
 
