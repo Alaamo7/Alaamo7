@@ -37,7 +37,7 @@ Selected cases include:
 - Autodesk 3ds Max startup failure resolved by isolating and resetting a corrupted user profile
 - Redragon USB flash recovery at the FirstChip controller/NAND-mapping level, verified with a full H2testw write/read test
 - Kingston DataTraveler Read Only / Write Protection recovery using Phison controller analysis and controlled stop conditions
-- HP Chromebook 14 G6 conversion to Windows through MrChrombox Full ROM UEFI, USB-PD troubleshooting, and Hardware-ID-based driver analysis
+- HP Chromebook 14 G6 conversion to Windows through MrChromebox Full ROM UEFI, USB-PD troubleshooting, and Hardware-ID-based driver analysis
 - The Sims 4 startup failure resolved by isolating a user-data version mismatch instead of performing an unnecessary full reinstall
 
 The workflow is consistent: capture symptoms and evidence, build ranked hypotheses, choose the lowest-risk useful test, execute the repair or configuration change, verify the result, and record limitations.
