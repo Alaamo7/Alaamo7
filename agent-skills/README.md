@@ -22,6 +22,17 @@ Reusable agent skills and workflow instructions designed for AI agents, agent ha
 - [`cost-control`](./cost-control/SKILL.md)
 - [`harness-engineering`](./harness-engineering/SKILL.md)
 
+### State & workflow engineering
+
+- [`task-state-management`](./task-state-management/SKILL.md) — durable task status, completed work, blockers, artifacts, side effects, and verification state.
+- [`workflow-engine`](./workflow-engine/SKILL.md) — explicit executable steps, conditions, branches, approvals, recovery paths, and terminal states.
+- [`dependency-management`](./dependency-management/SKILL.md) — hard/soft prerequisites, DAG-style ordering, permission/tool/data dependencies, and blocker handling.
+- [`checkpointing`](./checkpointing/SKILL.md) — resumable verified milestones with compact durable state.
+- [`resume-recovery`](./resume-recovery/SKILL.md) — safe continuation after interruption with external side-effect rechecks and duplicate prevention.
+- [`idempotency-control`](./idempotency-control/SKILL.md) — operation identities, existence checks, upserts, duplicate detection, and repeat-safe writes.
+- [`concurrency-control`](./concurrency-control/SKILL.md) — conflict prevention, optimistic concurrency, serialization points, and shared-resource coordination.
+- [`event-driven-agents`](./event-driven-agents/SKILL.md) — webhook/message/schedule/event validation, deduplication, state correlation, routing, and guarded execution.
+
 ### Tool engineering layer
 
 - [`tool-design`](./tool-design/SKILL.md) — narrow tool purpose, permissions, failure modes, and verification.
@@ -79,53 +90,78 @@ Reusable agent skills and workflow instructions designed for AI agents, agent ha
 ## Lifecycle architecture
 
 ```text
-User Objective
-    ↓
+Event / User Objective
+        ↓
+Event Validation + Deduplication (when event-driven)
+        ↓
 Harness Engineering
-    ↓
+        ↓
 Agent Orchestrator
-    ↓
+        ↓
+Workflow Engine
+        ↓
+Dependency Resolution
+        ↓
 Skill Router + Model Router
-    ↓
+        ↓
 Context Engineering + Memory Management
-    ↓
+        ↓
 Security + Cost + Human Approval Gates
-    ↓
+        ↓
+Task State + Checkpoint Load
+        ↓
 Data Validation
-    ↓
+        ↓
 Tool / Connector Selection
-    ├── API Integration
-    ├── Filesystem Operations
-    ├── Terminal Execution
-    ├── Browser Automation
-    └── Connected Services
-    ↓
+        ├── API Integration
+        ├── Filesystem Operations
+        ├── Terminal Execution
+        ├── Browser Automation
+        └── Connected Services
+        ↓
 Tool Contract Enforcement
-    ↓
+        ↓
+Idempotency + Concurrency Controls
+        ↓
 Execution
-    ↓
+        ↓
+Persist State + Checkpoint
+        ↓
 Agent Logging / Observability
-    ↓
+        ↓
 Verification Agent
-    ↓
-PASS ──────────────────────┐
-  │                        │
-FAIL                       │
-  ↓                        │
-Error Classification       │
-  ↓                        │
-Retry / Recovery           │
-  ↓                        │
-Human Review if needed     │
-  ↓                        │
-Re-verify ─────────────────┘
-    ↓
+        ↓
+PASS ──────────────────────────────┐
+  │                                │
+FAIL / INTERRUPTED                 │
+  ↓                                │
+Error Classification               │
+  ↓                                │
+Retry / Recovery                   │
+  ↓                                │
+Resume from trusted checkpoint     │
+  ↓                                │
+Human Review if needed             │
+  ↓                                │
+Re-verify ─────────────────────────┘
+        ↓
 Evaluation + Agent Testing
-    ↓
+        ↓
 Deployment Readiness
-    ↓
-Production
+        ↓
+Production / Event Loop
 ```
+
+## State & workflow principles
+
+1. **Explicit state over conversational memory** — track objective, status, completed steps, blockers, side effects, artifacts, and verification separately from free-form conversation.
+2. **Verified checkpoints** — persist only trusted progress at meaningful boundaries.
+3. **Resume, don't restart** — after interruption, continue from the last safe checkpoint and recheck external state before repeating actions.
+4. **Dependency-aware execution** — execute only steps whose prerequisites are satisfied; blocked branches should not prevent independent work.
+5. **Idempotent side effects** — design writes, sends, creates, and submissions so retries/resumes do not duplicate effects.
+6. **Concurrency discipline** — parallelize independent work while protecting shared mutable resources and reconciling conflicts.
+7. **Event safety** — validate, deduplicate, correlate, and policy-check external events before allowing execution.
+8. **Terminal states are explicit** — completed, failed, cancelled, blocked, escalated, or waiting approval should never be ambiguous.
 
 ## Tool engineering principles
 
@@ -164,6 +200,16 @@ agent-harness/
 │   ├── skill-router/
 │   ├── model-router/
 │   └── cost-control/
+├── workflow/
+│   ├── workflow-engine/
+│   ├── dependency-management/
+│   ├── event-driven-agents/
+│   └── concurrency-control/
+├── state/
+│   ├── task-state-management/
+│   ├── checkpointing/
+│   ├── resume-recovery/
+│   └── idempotency-control/
 ├── context/
 │   ├── context-engineering/
 │   └── memory-management/
@@ -203,7 +249,6 @@ agent-harness/
 │   ├── youtube-to-course/
 │   ├── ai-video-creator/
 │   └── job-agent/
-├── state/
 ├── policies/
 ├── evals/
 └── logs/
@@ -211,7 +256,7 @@ agent-harness/
 
 ## Compatibility
 
-The files use Markdown-based `SKILL.md` instructions and can be adapted to agent runtimes that support reusable skills or system/task instruction modules. Tool names, schemas, permission models, model routing, memory persistence, state handling, observability, approval gates, and connector behavior should be mapped to the target runtime before execution.
+The files use Markdown-based `SKILL.md` instructions and can be adapted to agent runtimes that support reusable skills or system/task instruction modules. Tool names, schemas, permission models, model routing, memory persistence, state handling, workflow engines, event processing, observability, approval gates, and connector behavior should be mapped to the target runtime before execution.
 
 ## Security note
 
@@ -219,4 +264,4 @@ No API keys, tokens, passwords, private candidate data, customer data, or other 
 
 ## Portfolio intent
 
-This directory demonstrates reusable workflows and agent/harness engineering patterns rather than isolated prompts. The target is an auditable execution system covering architecture, routing, context, tool engineering, permissions, execution, observability, recovery, evaluation, human review, and production readiness.
+This directory demonstrates reusable workflows and agent/harness engineering patterns rather than isolated prompts. The target is an auditable execution system covering architecture, routing, context, workflow/state management, tool engineering, permissions, execution, observability, recovery, evaluation, human review, and production readiness.
