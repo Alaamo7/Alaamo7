@@ -6,6 +6,7 @@ Reusable agent skills and workflow instructions designed for AI agents, agent ha
 
 - **Verified** — recovered from an existing saved `SKILL.md` in the working library.
 - **Restored** — reconstructed from a previously designed skill package whose original archive is no longer directly available.
+- **Restored from documented workflow/architecture** — rebuilt from previously documented procedures, incident workflows, or architecture notes; not presented as the byte-identical original skill file.
 - **Manifest** — documented skill pack whose individual source files are not yet recovered in the current workspace.
 
 ## Skills
@@ -17,24 +18,60 @@ Reusable agent skills and workflow instructions designed for AI agents, agent ha
 | [`youtube-to-course`](./youtube-to-course/SKILL.md) | Restored | Convert long-form video or playlist content into a structured course with lessons, exercises, quizzes, and a final project. |
 | [`ai-video-creator`](./ai-video-creator/SKILL.md) | Restored | Convert an idea or lesson into a production-ready video workflow: script, storyboard, prompts, recording, and editing plan. |
 | [`job-agent`](./job-agent/SKILL.md) | Restored | Search, evaluate, tailor, apply, and track job applications with evidence-first controls. |
-| [`spark-image-first-presentation-pack`](./spark-image-first-presentation-pack/README.md) | Manifest | 12-skill presentation pipeline derived from reference deck reverse engineering. |
+| [`it-support`](./it-support/SKILL.md) | Restored | Diagnose Windows endpoints, users, software, peripherals, connectivity, and common infrastructure incidents. |
+| [`usb-repair`](./usb-repair/SKILL.md) | Restored from documented workflow | Diagnose USB flash-drive failures and safely perform controller-level recovery when justified. |
+| [`network-diagnostics`](./network-diagnostics/SKILL.md) | Restored | Layered TCP/IP, DHCP, DNS, Wi-Fi, routing, firewall, and application-connectivity troubleshooting. |
+| [`pine-script-testing`](./pine-script-testing/SKILL.md) | Restored from documented workflow | Validate Pine Script v6 compilation, logic, inputs, state, repainting risk, visuals, and repository readiness. |
+| [`harness-engineering`](./harness-engineering/SKILL.md) | Restored from documented architecture | Design agent harnesses with tools, skills, context, memory, state, orchestration, verification, and security controls. |
+| [`spark-image-first-presentation-pack`](./spark-image-first-presentation-pack/README.md) | Manifest | 12-skill presentation pipeline derived from reference-deck reverse engineering. |
+
+## Skill groups
+
+### Agent engineering
+
+- `harness-engineering`
+- `job-agent`
+- `youtube-to-course`
+- `ai-video-creator`
+
+### IT operations
+
+- `it-support`
+- `network-diagnostics`
+- `usb-repair`
+
+### Development & QA
+
+- `pine-script-testing`
+
+### Content & career systems
+
+- `presentation-design`
+- `build-ats-resume`
+- `spark-image-first-presentation-pack`
 
 ## Design principles
 
 These skills are built around several common rules:
 
-1. **Evidence before claims** — do not invent facts, qualifications, metrics, sources, or outcomes.
-2. **Tool-aware execution** — distinguish reasoning from actions performed by tools such as Files, Web, Terminal, GitHub, or document generators.
-3. **Verification loops** — do not treat generation as completion; inspect outputs and validate results.
+1. **Evidence before claims** — do not invent facts, qualifications, metrics, sources, technical findings, or outcomes.
+2. **Tool-aware execution** — distinguish reasoning from actions performed by tools such as Files, Web, Terminal, GitHub, APIs, or document generators.
+3. **Verification loops** — do not treat generation or a successful tool call as completion; inspect the actual result and test it against the objective.
 4. **Least-privilege behavior** — request or use only the access required for the current task.
-5. **Reusable context** — keep stable instructions in skills while keeping task-specific data outside the skill file.
-6. **Clear status reporting** — separate verified facts, inferred conclusions, missing data, and unresolved failures.
+5. **Reusable context** — keep stable domain instructions in skills while keeping task-specific data outside the skill file.
+6. **Clear status reporting** — separate verified facts, hypotheses, missing data, and unresolved failures.
+7. **Controlled destructive actions** — disk repair, profile replacement, permission changes, firmware operations, deletions, and external sends require stronger evidence and authorization.
 
 ## Suggested harness layout
 
 ```text
 agent-harness/
 ├── skills/
+│   ├── harness-engineering/
+│   ├── it-support/
+│   ├── network-diagnostics/
+│   ├── usb-repair/
+│   ├── pine-script-testing/
 │   ├── build-ats-resume/
 │   ├── presentation-design/
 │   ├── youtube-to-course/
@@ -43,13 +80,19 @@ agent-harness/
 ├── memory/
 ├── tools/
 ├── workflows/
+├── state/
+├── policies/
 └── verification/
 ```
 
 ## Compatibility
 
-The files use Markdown-based `SKILL.md` instructions and can be adapted to agent runtimes that support reusable system/task skills. Tool names and permission models should be mapped to the target runtime before execution.
+The files use Markdown-based `SKILL.md` instructions and can be adapted to agent runtimes that support reusable system/task skills. Tool names, permissions, state management, and connector behavior should be mapped to the target runtime before execution.
 
 ## Security note
 
-No API keys, tokens, passwords, personal candidate data, or secrets should be committed to this directory. Use environment variables or the target platform's secret manager for credentials.
+No API keys, tokens, passwords, private candidate data, customer data, or other secrets should be committed to this directory. Use environment variables or the target platform's secret manager for credentials.
+
+## Portfolio intent
+
+This directory documents reusable workflows and agent-engineering patterns rather than isolated prompts. A skill should demonstrate a repeatable process, explicit boundaries, verification, and failure handling—not just a long instruction block.
