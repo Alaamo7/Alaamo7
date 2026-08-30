@@ -5,14 +5,13 @@ Reusable agent skills and workflow instructions designed for AI agents, agent ha
 ## Status legend
 
 - **Verified** — recovered from an existing saved `SKILL.md` in the working library.
-- **Restored** — reconstructed from a previously designed skill package whose original archive is no longer directly available.
-- **Restored from documented workflow/architecture** — rebuilt from previously documented procedures, incident workflows, or architecture notes; not presented as the byte-identical original skill file.
-- **Manifest** — documented skill pack whose individual source files are not yet recovered in the current workspace.
+- **Restored** — reconstructed from previously designed workflows or architecture.
+- **Restored from documented workflow/architecture** — rebuilt from prior documented procedures; not presented as the byte-identical original skill file.
+- **Manifest** — documented skill pack whose individual source files are not yet recovered.
 
-## Skills
+## Skill layers
 
 ### Agent infrastructure & orchestration
-
 - [`agent-orchestrator`](./agent-orchestrator/SKILL.md)
 - [`skill-router`](./skill-router/SKILL.md)
 - [`context-engineering`](./context-engineering/SKILL.md)
@@ -22,30 +21,37 @@ Reusable agent skills and workflow instructions designed for AI agents, agent ha
 - [`cost-control`](./cost-control/SKILL.md)
 - [`harness-engineering`](./harness-engineering/SKILL.md)
 
+### Knowledge & retrieval
+- [`rag-pipeline`](./rag-pipeline/SKILL.md) — end-to-end retrieval-augmented generation architecture.
+- [`document-ingestion`](./document-ingestion/SKILL.md) — extraction, metadata, provenance, permissions, duplicate/version handling.
+- [`chunking-strategy`](./chunking-strategy/SKILL.md) — structure-aware retrieval units with semantic coherence.
+- [`retrieval-ranking`](./retrieval-ranking/SKILL.md) — relevance, authority, freshness, metadata filtering, deduplication, and reranking.
+- [`source-grounding`](./source-grounding/SKILL.md) — map generated claims to supporting evidence and uncertainty.
+- [`citation-management`](./citation-management/SKILL.md) — claim-to-source alignment and citation-drift prevention.
+- [`knowledge-refresh`](./knowledge-refresh/SKILL.md) — incremental refresh, versioning, stale-content retirement, and retrieval verification.
+- [`knowledge-quality-control`](./knowledge-quality-control/SKILL.md) — coverage, authority, freshness, extraction, retrieval, and unsupported-answer audits.
+
 ### State & workflow engineering
+- [`task-state-management`](./task-state-management/SKILL.md)
+- [`workflow-engine`](./workflow-engine/SKILL.md)
+- [`dependency-management`](./dependency-management/SKILL.md)
+- [`checkpointing`](./checkpointing/SKILL.md)
+- [`resume-recovery`](./resume-recovery/SKILL.md)
+- [`idempotency-control`](./idempotency-control/SKILL.md)
+- [`concurrency-control`](./concurrency-control/SKILL.md)
+- [`event-driven-agents`](./event-driven-agents/SKILL.md)
 
-- [`task-state-management`](./task-state-management/SKILL.md) — durable task status, completed work, blockers, artifacts, side effects, and verification state.
-- [`workflow-engine`](./workflow-engine/SKILL.md) — explicit executable steps, conditions, branches, approvals, recovery paths, and terminal states.
-- [`dependency-management`](./dependency-management/SKILL.md) — hard/soft prerequisites, DAG-style ordering, permission/tool/data dependencies, and blocker handling.
-- [`checkpointing`](./checkpointing/SKILL.md) — resumable verified milestones with compact durable state.
-- [`resume-recovery`](./resume-recovery/SKILL.md) — safe continuation after interruption with external side-effect rechecks and duplicate prevention.
-- [`idempotency-control`](./idempotency-control/SKILL.md) — operation identities, existence checks, upserts, duplicate detection, and repeat-safe writes.
-- [`concurrency-control`](./concurrency-control/SKILL.md) — conflict prevention, optimistic concurrency, serialization points, and shared-resource coordination.
-- [`event-driven-agents`](./event-driven-agents/SKILL.md) — webhook/message/schedule/event validation, deduplication, state correlation, routing, and guarded execution.
-
-### Tool engineering layer
-
-- [`tool-design`](./tool-design/SKILL.md) — narrow tool purpose, permissions, failure modes, and verification.
-- [`tool-contracts`](./tool-contracts/SKILL.md) — schemas, preconditions, postconditions, error taxonomy, and compatibility.
-- [`api-integration`](./api-integration/SKILL.md) — authentication, API requests, pagination, rate limits, retries, and mutation verification.
-- [`filesystem-operations`](./filesystem-operations/SKILL.md) — safe read/write/move/copy/delete operations with path controls and verification.
-- [`terminal-execution`](./terminal-execution/SKILL.md) — command classification, environment checks, output capture, privilege boundaries, and verification.
-- [`browser-automation`](./browser-automation/SKILL.md) — deterministic browser workflows with page-state checks, safe form handling, and confirmation gates.
-- [`connector-routing`](./connector-routing/SKILL.md) — route work to the authoritative connected system based on data ownership and write-back semantics.
-- [`data-validation`](./data-validation/SKILL.md) — schema, domain, completeness, consistency, provenance, and anomaly checks before actions.
+### Tool engineering
+- [`tool-design`](./tool-design/SKILL.md)
+- [`tool-contracts`](./tool-contracts/SKILL.md)
+- [`api-integration`](./api-integration/SKILL.md)
+- [`filesystem-operations`](./filesystem-operations/SKILL.md)
+- [`terminal-execution`](./terminal-execution/SKILL.md)
+- [`browser-automation`](./browser-automation/SKILL.md)
+- [`connector-routing`](./connector-routing/SKILL.md)
+- [`data-validation`](./data-validation/SKILL.md)
 
 ### Observability, reliability & production operations
-
 - [`agent-logging`](./agent-logging/SKILL.md)
 - [`error-recovery`](./error-recovery/SKILL.md)
 - [`retry-policy`](./retry-policy/SKILL.md)
@@ -56,15 +62,12 @@ Reusable agent skills and workflow instructions designed for AI agents, agent ha
 - [`deployment-readiness`](./deployment-readiness/SKILL.md)
 
 ### Governance & security
-
 - [`agent-security-permissions`](./agent-security-permissions/SKILL.md)
 - [`secrets-management`](./secrets-management/SKILL.md)
 - [`human-in-the-loop`](./human-in-the-loop/SKILL.md)
 - [`verification-agent`](./verification-agent/SKILL.md)
-- [`cost-control`](./cost-control/SKILL.md)
 
 ### IT operations & automation
-
 - [`it-support`](./it-support/SKILL.md)
 - [`network-diagnostics`](./network-diagnostics/SKILL.md)
 - [`usb-repair`](./usb-repair/SKILL.md)
@@ -73,13 +76,11 @@ Reusable agent skills and workflow instructions designed for AI agents, agent ha
 - [`knowledge-capture`](./knowledge-capture/SKILL.md)
 
 ### Development, research & repository QA
-
 - [`pine-script-testing`](./pine-script-testing/SKILL.md)
 - [`github-agent`](./github-agent/SKILL.md)
 - [`ai-research`](./ai-research/SKILL.md)
 
 ### Content, learning & career systems
-
 - [`presentation-design`](./presentation-design/SKILL.md) — Verified
 - [`build-ats-resume`](./build-ats-resume/SKILL.md) — Verified
 - [`youtube-to-course`](./youtube-to-course/SKILL.md)
@@ -87,37 +88,60 @@ Reusable agent skills and workflow instructions designed for AI agents, agent ha
 - [`job-agent`](./job-agent/SKILL.md)
 - [`spark-image-first-presentation-pack`](./spark-image-first-presentation-pack/README.md) — Manifest
 
+## Knowledge path
+
+```text
+Trusted Sources
+    ↓
+Document Ingestion
+    ↓
+Metadata + Provenance + Permissions
+    ↓
+Chunking Strategy
+    ↓
+Index / Retrieval
+    ↓
+Retrieval Ranking
+    ↓
+Minimum Sufficient Evidence
+    ↓
+Context Engineering
+    ↓
+Source-Grounded Generation
+    ↓
+Citation Management
+    ↓
+Verification Agent
+    ↓
+Answer
+
+Knowledge Refresh ───────────────┐
+Knowledge Quality Control ───────┴──→ continuously validate the corpus and retrieval path
+```
+
 ## Lifecycle architecture
 
 ```text
 Event / User Objective
         ↓
-Event Validation + Deduplication (when event-driven)
+Orchestrator + Workflow Engine
         ↓
-Harness Engineering
+Dependency / Skill / Model Routing
         ↓
-Agent Orchestrator
+Task State + Checkpoints
         ↓
-Workflow Engine
+Knowledge Retrieval (when needed)
+        ├── Ingest / Chunk / Index
+        ├── Retrieve / Rank
+        └── Ground / Cite
         ↓
-Dependency Resolution
+Context + Memory
         ↓
-Skill Router + Model Router
-        ↓
-Context Engineering + Memory Management
-        ↓
-Security + Cost + Human Approval Gates
-        ↓
-Task State + Checkpoint Load
+Security + Cost + Human Gates
         ↓
 Data Validation
         ↓
 Tool / Connector Selection
-        ├── API Integration
-        ├── Filesystem Operations
-        ├── Terminal Execution
-        ├── Browser Automation
-        └── Connected Services
         ↓
 Tool Contract Enforcement
         ↓
@@ -125,25 +149,11 @@ Idempotency + Concurrency Controls
         ↓
 Execution
         ↓
-Persist State + Checkpoint
+Logging + Persist State
         ↓
-Agent Logging / Observability
+Verification
         ↓
-Verification Agent
-        ↓
-PASS ──────────────────────────────┐
-  │                                │
-FAIL / INTERRUPTED                 │
-  ↓                                │
-Error Classification               │
-  ↓                                │
-Retry / Recovery                   │
-  ↓                                │
-Resume from trusted checkpoint     │
-  ↓                                │
-Human Review if needed             │
-  ↓                                │
-Re-verify ─────────────────────────┘
+PASS / RETRY / RECOVER / RESUME / ESCALATE
         ↓
 Evaluation + Agent Testing
         ↓
@@ -152,103 +162,51 @@ Deployment Readiness
 Production / Event Loop
 ```
 
-## State & workflow principles
+## Knowledge & retrieval principles
 
-1. **Explicit state over conversational memory** — track objective, status, completed steps, blockers, side effects, artifacts, and verification separately from free-form conversation.
-2. **Verified checkpoints** — persist only trusted progress at meaningful boundaries.
-3. **Resume, don't restart** — after interruption, continue from the last safe checkpoint and recheck external state before repeating actions.
-4. **Dependency-aware execution** — execute only steps whose prerequisites are satisfied; blocked branches should not prevent independent work.
-5. **Idempotent side effects** — design writes, sends, creates, and submissions so retries/resumes do not duplicate effects.
-6. **Concurrency discipline** — parallelize independent work while protecting shared mutable resources and reconciling conflicts.
-7. **Event safety** — validate, deduplicate, correlate, and policy-check external events before allowing execution.
-8. **Terminal states are explicit** — completed, failed, cancelled, blocked, escalated, or waiting approval should never be ambiguous.
-
-## Tool engineering principles
-
-1. **Narrow contracts** — each tool should have a clear purpose and predictable semantics.
-2. **Validated input** — malformed or incomplete critical data should fail before side effects occur.
-3. **Structured output** — downstream agents should be able to distinguish success, conflict, validation errors, permission failures, and transient failures.
-4. **Authoritative connector routing** — operate on the original source system when identity or write-back matters.
-5. **Read before write** — inspect state before mutation where practical.
-6. **Read-after-write verification** — check the actual resulting state instead of trusting a success response blindly.
-7. **Least privilege** — tools receive only the permissions required for the current task.
-8. **No secret propagation** — credentials stay in secret stores/runtime injection, not prompts, logs, or repositories.
+1. **Provenance survives ingestion** — source identity, version, location, and access metadata remain attached to retrieved content.
+2. **Structure-aware chunking** — retrieval units should preserve semantic and document boundaries rather than rely only on fixed character counts.
+3. **Ranking is multi-factor** — semantic relevance, exact match, authority, freshness, metadata, duplication, and permissions all matter.
+4. **Minimum sufficient evidence** — do not overload the context with weak or duplicate chunks.
+5. **Ground claims, not just answers** — material claims should map to supporting evidence.
+6. **Citation integrity** — verify citations after edits to prevent citation drift.
+7. **Freshness is explicit** — changed or stale sources should trigger refresh or qualification.
+8. **Quality is measurable** — test retrieval with representative questions and audit unsupported-answer risk.
 
 ## Core design principles
 
-1. **Evidence before claims** — do not invent facts, qualifications, metrics, sources, technical findings, or outcomes.
-2. **Tool-aware execution** — distinguish reasoning from actions performed by Files, Web, Terminal, GitHub, APIs, browsers, or document generators.
-3. **Verification loops** — generation or a successful tool call is not completion; inspect the actual result against the objective.
-4. **Least privilege** — use only the permissions needed for the current task.
-5. **Minimum sufficient context** — retrieve only instructions, evidence, memory, and tool results that materially affect the task.
-6. **Skill routing** — load relevant skills dynamically instead of maintaining one giant universal prompt.
-7. **Explicit state** — track objectives, completed work, blockers, errors, and verification status.
-8. **Controlled destructive actions** — disk repair, profile replacement, permission changes, firmware operations, deletion, and external sends require stronger gates.
-9. **Model/cost discipline** — match model capability and compute spend to the task without silently degrading required quality.
-10. **Observability without secret leakage** — log actions, outcomes, failures, approvals, and verification while excluding secrets and hidden reasoning.
-11. **Retry only when justified** — classify failures before retrying and inspect side effects before repeating writes or sends.
-12. **Evaluation before production** — successful demos do not equal production readiness; require representative tests and failure-path coverage.
-13. **Human review by risk** — use human approval where it materially reduces risk, not as a blanket gate for routine operations.
-14. **Operational documentation** — reusable workflows should record environment, evidence, action, verification, and unresolved risk.
+- Evidence before claims.
+- Verification after consequential actions.
+- Least-privilege tools and connectors.
+- Minimum sufficient context.
+- Explicit workflow and task state.
+- Idempotent and concurrency-safe side effects.
+- Observability without secret leakage.
+- Retry only after failure classification.
+- Human review proportional to risk.
+- Evaluation before production.
 
 ## Suggested harness layout
 
 ```text
 agent-harness/
 ├── orchestration/
-│   ├── agent-orchestrator/
-│   ├── skill-router/
-│   ├── model-router/
-│   └── cost-control/
 ├── workflow/
-│   ├── workflow-engine/
-│   ├── dependency-management/
-│   ├── event-driven-agents/
-│   └── concurrency-control/
 ├── state/
-│   ├── task-state-management/
-│   ├── checkpointing/
-│   ├── resume-recovery/
-│   └── idempotency-control/
 ├── context/
-│   ├── context-engineering/
-│   └── memory-management/
+├── knowledge/
+│   ├── rag-pipeline/
+│   ├── document-ingestion/
+│   ├── chunking-strategy/
+│   ├── retrieval-ranking/
+│   ├── source-grounding/
+│   ├── citation-management/
+│   ├── knowledge-refresh/
+│   └── knowledge-quality-control/
 ├── governance/
-│   ├── agent-security-permissions/
-│   ├── secrets-management/
-│   ├── human-in-the-loop/
-│   └── verification-agent/
 ├── tool-engineering/
-│   ├── tool-design/
-│   ├── tool-contracts/
-│   ├── api-integration/
-│   ├── filesystem-operations/
-│   ├── terminal-execution/
-│   ├── browser-automation/
-│   ├── connector-routing/
-│   └── data-validation/
 ├── operations/
-│   ├── agent-logging/
-│   ├── error-recovery/
-│   ├── retry-policy/
-│   ├── evaluation-framework/
-│   ├── agent-testing/
-│   └── deployment-readiness/
 ├── skills/
-│   ├── it-support/
-│   ├── network-diagnostics/
-│   ├── usb-repair/
-│   ├── windows-deployment/
-│   ├── powershell-automation/
-│   ├── knowledge-capture/
-│   ├── pine-script-testing/
-│   ├── github-agent/
-│   ├── ai-research/
-│   ├── build-ats-resume/
-│   ├── presentation-design/
-│   ├── youtube-to-course/
-│   ├── ai-video-creator/
-│   └── job-agent/
 ├── policies/
 ├── evals/
 └── logs/
@@ -256,12 +214,12 @@ agent-harness/
 
 ## Compatibility
 
-The files use Markdown-based `SKILL.md` instructions and can be adapted to agent runtimes that support reusable skills or system/task instruction modules. Tool names, schemas, permission models, model routing, memory persistence, state handling, workflow engines, event processing, observability, approval gates, and connector behavior should be mapped to the target runtime before execution.
+The files use Markdown-based `SKILL.md` instructions and can be adapted to agent runtimes that support reusable skills or system/task instruction modules. Tool names, schemas, permission models, retrieval/index technology, model routing, memory persistence, state handling, workflow engines, observability, approval gates, and connector behavior should be mapped to the target runtime before execution.
 
 ## Security note
 
-No API keys, tokens, passwords, private candidate data, customer data, or other secrets should be committed to this directory. Use environment variables or the target platform's secret manager for credentials. If a real secret is exposed in Git history, rotate/revoke it rather than relying only on deletion from the latest file version.
+No API keys, tokens, passwords, private candidate data, customer data, or other secrets should be committed here. Use runtime secret injection or a secret manager. Retrieval permissions must respect source-system access boundaries; indexing content does not make it public.
 
 ## Portfolio intent
 
-This directory demonstrates reusable workflows and agent/harness engineering patterns rather than isolated prompts. The target is an auditable execution system covering architecture, routing, context, workflow/state management, tool engineering, permissions, execution, observability, recovery, evaluation, human review, and production readiness.
+This directory demonstrates reusable AI agent and harness-engineering patterns rather than isolated prompts. The target is an auditable system covering architecture, routing, knowledge retrieval, context, state/workflows, tool engineering, permissions, execution, observability, recovery, evaluation, human review, and production readiness.
