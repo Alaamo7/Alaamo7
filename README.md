@@ -21,16 +21,21 @@ I work on practical IT support, structured troubleshooting, AI-assisted technica
 
 I document real troubleshooting cases using an evidence-based workflow: capture symptoms and Hardware IDs, build hypotheses, choose the lowest-risk repair path, perform the hands-on technical work, verify the result, and record both successes and unresolved limitations.
 
+**Current documented portfolio: 5 verified real-world cases.**
+
 Selected cases include:
 
 - Autodesk 3ds Max startup failure resolved by isolating and resetting a corrupted user profile
 - Redragon USB flash recovery at the FirstChip controller/NAND-mapping level, verified with a full H2testw write/read test
 - Kingston DataTraveler Read Only / Write Protection recovery using Phison controller analysis and controlled stop conditions
 - HP Chromebook 14 G6 conversion to Windows through MrChromebox Full ROM UEFI, USB-PD troubleshooting, and Hardware-ID-based driver analysis
+- The Sims 4 startup failure resolved by isolating a user-data version mismatch instead of performing an unnecessary full reinstall
 
 AI is used as a **technical copilot** for research, hypothesis structuring, evidence organization, and documentation; repair execution and final validation are performed on the actual devices and systems.
 
 [Read the IT + AI troubleshooting case studies →](https://github.com/Alaamo7/Alaamo7/blob/main/docs/it-ai-case-studies.md)
+
+[Open the reusable case-study template →](https://github.com/Alaamo7/Alaamo7/blob/main/docs/it-case-study-template.md)
 
 ### 🧪 120-script TradingView validation project
 
@@ -78,6 +83,7 @@ Building a stronger combined portfolio around **IT Technical Support + AI-assist
 ## Repository guide
 
 - [`Alaamo7/Alaamo7 — IT + AI case studies`](https://github.com/Alaamo7/Alaamo7/blob/main/docs/it-ai-case-studies.md) — real troubleshooting cases covering Windows applications, USB storage recovery, firmware/UEFI, drivers, and verification
+- [`IT case-study template`](https://github.com/Alaamo7/Alaamo7/blob/main/docs/it-case-study-template.md) — reusable structure for future evidence-backed troubleshooting cases
 - [`pine-script-indicators`](https://github.com/Alaamo7/pine-script-indicators) — main technical-analysis toolkit, archive, documentation, and TradingView validation evidence
 - [`pine-script-portfolio`](https://github.com/Alaamo7/pine-script-portfolio) — curated public portfolio of verified Pine Script v6 indicators
 - [`pine-script-v6-course`](https://github.com/Alaamo7/pine-script-v6-course) — educational Pine Script project currently being validated and developed
