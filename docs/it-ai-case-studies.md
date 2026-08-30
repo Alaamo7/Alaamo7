@@ -137,6 +137,42 @@ Helped correlate Hardware IDs with device classes, structure driver hypotheses, 
 
 ---
 
+## 5. The Sims 4 startup failure — User Data version mismatch
+
+**Problem**
+
+The game failed to start with an error stating that the contents of the user data directory were created by a newer version of The Sims 4 and could not be loaded by the currently installed version.
+
+**Diagnosis**
+
+- Interpreted the error as a compatibility problem between the installed application version and persistent user data under the Windows profile.
+- Identified `GameVersion.txt` and the existing user-data folder as the likely compatibility boundary.
+- Preserved reversibility by backing up data before changing it.
+
+**Resolution**
+
+The incompatible user data was removed/reset, allowing the game to generate a fresh user-data set compatible with the installed version.
+
+**Result**
+
+The game started successfully without the previous version-mismatch error.
+
+**IT skills demonstrated**
+
+Windows application-data troubleshooting, version mismatch diagnosis, profile-data isolation, backup-first remediation, reversible changes.
+
+**AI-assisted value**
+
+Helped translate the error message into a specific compatibility hypothesis and document a minimal-change repair path before considering reinstall or broader system changes.
+
+---
+
+## Case-study quality rules
+
+Only incidents with enough evidence to describe the **problem, diagnosis, action, and result** are promoted into this public portfolio. Short conversations, unverified fixes, or unresolved guesses are kept out until they have sufficient technical evidence.
+
+Sensitive customer information, credentials, serial numbers, personal identifiers, and unnecessary device ownership details are excluded from public documentation.
+
 ## My IT + AI troubleshooting model
 
 I use AI as a **copilot**, not as a substitute for technical verification.
@@ -150,5 +186,6 @@ Typical workflow:
 5. Perform the actual repair or configuration change on the system.
 6. Verify with measurable evidence: successful boot, Device Manager state, write/read tests, application startup, capacity checks, or logs.
 7. Record what worked, what failed, and what remains unresolved.
+8. Promote the incident to a public case study only when the evidence supports the claims.
 
 This approach combines traditional IT support discipline with AI-assisted research, reasoning support, and structured documentation.
