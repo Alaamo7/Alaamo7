@@ -10,12 +10,31 @@ I work on practical IT support, structured troubleshooting, AI-assisted technica
 
 - Windows troubleshooting, deployment, drivers, storage, firmware, and endpoint support
 - AI-assisted troubleshooting, technical research, documentation, and verification workflows
+- Hosted AI application prototyping and Hugging Face Spaces deployment
+- Prompt engineering, LLM evaluation, and AI-agent-oriented experimentation
 - TradingView indicators and Pine Script v6 development/debugging
 - EGX-focused technical-analysis dashboards
 - Backtesting and TradingView validation workflows
 - Reusable technical documentation and learning resources
 
 ## Portfolio highlights
+
+### 🤖 PromptBench AI — Hugging Face Space
+
+**PromptBench AI** is a live Hugging Face Space used as a practical environment for LLM/prompt experimentation, evaluation workflows, AI-agent-oriented prototyping, and hosted AI deployment.
+
+**Verified public status — 2026-08-30:**
+
+- Hugging Face Space: **Running**
+- Category: **Agents**
+- Deployment platform: **Hugging Face Spaces**
+- Portfolio focus: prompt workflows, evaluation, deployment, testing, iteration, and secure credential handling
+
+The project demonstrates moving AI work beyond local experiments into a hosted, testable application lifecycle with explicit attention to documentation, reproducibility, and secrets management.
+
+[Open the live Hugging Face Space →](https://huggingface.co/spaces/3la2mo7/promptbench-ai)
+
+[Read the PromptBench AI case study →](https://github.com/Alaamo7/Alaamo7/blob/main/docs/ai-projects/promptbench-ai.md)
 
 ### 🛠️ IT Support + AI-Assisted Troubleshooting Case Studies
 
@@ -78,10 +97,11 @@ A successful compile, backtest, repair, or device recovery is treated as evidenc
 
 ## Current focus
 
-Building a stronger combined portfolio around **IT Technical Support + AI-assisted operations**, while continuing to improve the engineering quality, validation evidence, documentation, and maintainability of my Pine Script projects.
+Building a stronger combined portfolio around **IT Technical Support + AI-assisted operations + hosted AI applications**, while continuing to improve the engineering quality, validation evidence, documentation, and maintainability of my Pine Script projects.
 
 ## Repository guide
 
+- [`PromptBench AI case study`](https://github.com/Alaamo7/Alaamo7/blob/main/docs/ai-projects/promptbench-ai.md) — live Hugging Face Space, hosted AI application workflow, prompt/LLM experimentation, deployment, testing, and security notes
 - [`Alaamo7/Alaamo7 — IT + AI case studies`](https://github.com/Alaamo7/Alaamo7/blob/main/docs/it-ai-case-studies.md) — real troubleshooting cases covering Windows applications, USB storage recovery, firmware/UEFI, drivers, and verification
 - [`IT case-study template`](https://github.com/Alaamo7/Alaamo7/blob/main/docs/it-case-study-template.md) — reusable structure for future evidence-backed troubleshooting cases
 - [`pine-script-indicators`](https://github.com/Alaamo7/pine-script-indicators) — main technical-analysis toolkit, archive, documentation, and TradingView validation evidence
